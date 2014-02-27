@@ -5,3 +5,7 @@ packages:
   blas:
     use: openblas
   ipython:
+  python:
+    host: false
+    build_with: |
+      bzip2, openssl, sqlite
