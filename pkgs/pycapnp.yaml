@@ -1,0 +1,29 @@
+extends: [setuptools_package]
+
+dependencies:
+  build: [capnproto, cython]
+  run: [capnproto]
+
+sources:
+ - url: https://pypi.python.org/packages/source/p/pycapnp/pycapnp-0.4.3.tar.gz
+   key: tar.gz:p7kzfeg3j32cvligioavruoxvuyjiymp
+
+build_stages:
+
+- when: platform == 'linux'
+  name: set-LDFLAGS
+  before: install
+  handler: bash
+  bash: |
+    export LDFLAGS="-Wl,-rpath=${CAPNPROTO_DIR}/lib"
+    echo "HELLO THIS IS DOG ${LDFLAGS}"
+
+- name: install
+  mode: replace
+  handler: bash
+  bash: |
+    export BUILD_FLAGS="$(pkg-config --cflags-only-I --libs capnp) $(pkg-config --cflags-only-I --libs capnp-rpc)"
+    ${PYTHON} setup.py build_ext ${BUILD_FLAGS}
+    ${PYTHON} setup.py install --prefix=${ARTIFACT}
+
+licenses: [bsd-2-clause]

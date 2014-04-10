@@ -1,0 +1,11 @@
+extends: [autotools_package]
+
+sources:
+  - url: http://capnproto.org/capnproto-c++-0.4.1.tar.gz
+    key: tar.gz:qrj6rviisbqgf4it3pp76vjpihqiba6m
+
+when_build_dependency:
+- set:  PKG_CONFIG_PATH
+  value: ${ARTIFACT}/lib/pkgconfig
+
+licenses: [bsd-2-clause]
