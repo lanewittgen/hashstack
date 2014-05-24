@@ -1,0 +1,13 @@
+extends: [setuptools_package]
+
+dependencies:
+  build:
+    - numpy
+  run:
+    - numpy
+
+sources:
+ - url: https://pypi.python.org/packages/source/p/pymc/pymc-2.3.2.tar.gz
+   key: tar.gz:jr6gsrhqhj2o6izrd5n2psbatq6gzhwd
+
+licenses: [apache-2]
