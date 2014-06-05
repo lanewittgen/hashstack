@@ -1,0 +1,16 @@
+extends: [distutils_package]
+
+sources:
+  - url: https://github.com/Theano/Theano
+    key: git:88f5a71d19a92305a82164c71f65ec8cdbf3a79c
+
+# See http://deeplearning.net/software/theano/install.html
+# for list of dependencies.
+dependencies:
+  build: []
+  run:
+    - blas
+    - numpy
+    - scipy
+
+licenses: [bsd-3-clause]
