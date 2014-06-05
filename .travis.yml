@@ -10,6 +10,7 @@ env:
   - TEST_PROFILE="test.packages2.yaml"
   - TEST_PROFILE="test.packages3.yaml"
   - TEST_PROFILE="test.packages4.yaml"
+  - TEST_PROFILE="test.packages5.yaml"
   - TEST_PROFILE="test.vxl.yaml"
 python:
   - 2.7
@@ -24,6 +25,9 @@ before_install:
     fi
   - if [[ "${TEST_PROFILE}" == "test.packages3.yaml" ]]; then
       sudo apt-get install mpich2 liblapack-dev;
+    fi
+  - if [[ "${TEST_PROFILE}" == "test.packages5.yaml" ]]; then
+      sudo apt-get install liblapack-dev;
     fi
   - if [[ "${TEST_PROFILE}" == "test.cmake.yaml" ]]; then
        sudo apt-get install mpich2;

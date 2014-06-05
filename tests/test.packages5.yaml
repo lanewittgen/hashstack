@@ -1,0 +1,12 @@
+# misc packages tested together for efficiency
+
+extends:
+- file: debian.yaml
+
+packages:
+  blas:
+    use: host-blas
+
+  theano:
+  statsmodels:
+  ggplot:
